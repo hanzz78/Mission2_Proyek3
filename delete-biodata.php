@@ -5,11 +5,11 @@ $id = $_GET['id'];
 
 $sql = "DELETE FROM biodata WHERE id=$id";
 
-if ($conn->query($sql) === TRUE) {
+if ($koneksi->query($sql) === TRUE) {
     echo "Data berhasil dihapus. <a href='list-biodata.php'>Kembali</a>";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $koneksi->error;
 }
 
-$conn->close();
+$koneksi->close();
 ?>

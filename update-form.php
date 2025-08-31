@@ -3,7 +3,7 @@ include "koneksi-db.php";
 
 $id = $_GET['id'];
 $sql = "SELECT * FROM biodata WHERE id=$id";
-$result = $conn->query($sql);
+$result = $koneksi->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
@@ -12,13 +12,13 @@ if ($result->num_rows > 0) {
     <form action="update-biodata.php" method="post">
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
         Nama: <input type="text" name="nama" value="<?php echo $row['nama']; ?>"><br>
-        Alamat: <input type="text" name="alamat" value="<?php echo $row['alamat']; ?>"><br>
-        Jurusan: <input type="text" name="jurusan" value="<?php echo $row['jurusan']; ?>"><br>
+        tanggal lahir: <input type="text" name="tgl_lahir" value="<?php echo $row['tgl_lahir']; ?>"><br>
+        Jenis Kelamin: <input type="text" name="jk" value="<?php echo $row['jk']; ?>"><br>
         <input type="submit" value="Update">
     </form>
 <?php
 } else {
     echo "Data tidak ditemukan.";
 }
-$conn->close();
+$koneksi->close();
 ?>

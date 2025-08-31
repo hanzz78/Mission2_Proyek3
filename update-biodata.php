@@ -3,16 +3,16 @@ include "koneksi-db.php";
 
 $id = $_POST['id'];
 $nama = $_POST['nama'];
-$alamat = $_POST['alamat'];
-$jurusan = $_POST['jurusan'];
+$tgl_lahir = $_POST['tgl_lahir'];
+$Jenis_Kelamin = $_POST['jk'];
 
-$sql = "UPDATE biodata SET nama='$nama', alamat='$alamat', jurusan='$jurusan' WHERE id=$id";
+$sql = "UPDATE biodata SET nama='$nama', tgl_lahir='$tgl_lahir', jk='$Jenis_Kelamin' WHERE id=$id";
 
-if ($conn->query($sql) === TRUE) {
+if ($koneksi->query($sql) === TRUE) {
     echo "Data berhasil diupdate. <a href='list-biodata.php'>Lihat Data</a>";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $koneksi->error;
 }
 
-$conn->close();
+$koneksi->close();
 ?>
