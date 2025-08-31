@@ -22,13 +22,15 @@ $result = mysqli_query($koneksi, $sql);
             <th>NIM</th>
             <th>Keterangan</th>
         </tr>
-        <?php while($row = mysqli_fetch_assoc($result)) { ?>
-        <tr>
-            <td><?= $row['id']; ?></td>
-            <td><?= $row['nama']; ?></td>
-            <td><?= $row['nim']; ?></td>
-            <td><a href="detail-biodata.php?id=<?= $row['id']; ?>">Detail</a></td>
-        </tr>
+        <?php while($row = $result->fetch_assoc()) {
+    echo "ID: " . $row["id"]. 
+         " - Nama: " . $row["nama"]. 
+         " - Alamat: " . $row["alamat"]. 
+         " - Jurusan: " . $row["jurusan"]. 
+         " <a href='detail-biodata.php?id=".$row["id"]."'>Detail</a> | 
+           <a href='update-form.php?id=".$row["id"]."'>Edit</a> | 
+           <a href='delete-biodata.php?id=".$row["id"]."'>Hapus</a><br>";
+}
         <?php } ?>
     </table>
 </body>
