@@ -19,18 +19,22 @@ $result = mysqli_query($koneksi, $sql);
         <tr>
             <th>ID</th>
             <th>Nama</th>
-            <th>NIM</th>
-            <th>Keterangan</th>
+            <th>Alamat</th>
+            <th>Jurusan</th>
+            <th>Aksi</th>
         </tr>
-        <?php while($row = $result->fetch_assoc()) {
-    echo "ID: " . $row["id"]. 
-         " - Nama: " . $row["nama"]. 
-         " - Alamat: " . $row["alamat"]. 
-         " - Jurusan: " . $row["jurusan"]. 
-         " <a href='detail-biodata.php?id=".$row["id"]."'>Detail</a> | 
-           <a href='update-form.php?id=".$row["id"]."'>Edit</a> | 
-           <a href='delete-biodata.php?id=".$row["id"]."'>Hapus</a><br>";
-}
+        <?php while($row = mysqli_fetch_assoc($result)) { ?>
+        <tr>
+            <td><?= $row["id"] ?></td>
+            <td><?= $row["nama"] ?></td>
+            <td><?= $row["alamat"] ?></td>
+            <td><?= $row["jurusan"] ?></td>
+            <td>
+                <a href="detail-biodata.php?id=<?= $row["id"] ?>">Detail</a> | 
+                <a href="update-form.php?id=<?= $row["id"] ?>">Edit</a> | 
+                <a href="delete-biodata.php?id=<?= $row["id"] ?>" onclick="return confirm('Yakin mau hapus?')">Hapus</a>
+            </td>
+        </tr>
         <?php } ?>
     </table>
 </body>
