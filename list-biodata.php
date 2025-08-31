@@ -20,7 +20,7 @@ $result = mysqli_query($koneksi, $sql);
             <th>ID</th>
             <th>Nama</th>
             <th>NIM</th>
-            <th>Aksi</th>
+            <th>Keterangan</th>
         </tr>
         <?php while($row = mysqli_fetch_assoc($result)) { ?>
         <tr>
