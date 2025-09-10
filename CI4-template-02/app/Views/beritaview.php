@@ -1,0 +1,1 @@
+<h1>berita akan disimpan disini<h1>
